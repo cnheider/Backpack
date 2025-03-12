@@ -8,15 +8,15 @@
 #include <Arduino.h>
 #include <SPI.h>
 
-#define VRX_BOOT_DELAY 2000
+#define VRX_BOOT_DELAY 2000 // 2 seconds delay before sending any packets to rapidfire
 
-#define DELAY_BETWEEN_SPI_PKT 100
+#define DELAY_BETWEEN_SPI_PKT 100 // 100ms delay between each SPI packet
 
 #define SPAM_COUNT 3 // rapidfire sometimes missed a pkt, so send 3x
 
-#define MAX_LENGTH_TEXT 25
+#define MAX_LENGTH_TEXT 25 // max length of text to display on rapidfire osd
 
-#define TIMEOUT_SET_OSD 3000
+#define TIMEOUT_SET_OSD 3000 // 3 seconds
 
 class Rapidfire : public ModuleBase {
 public:
@@ -30,6 +30,7 @@ public:
   void SetOSD(mspPacket_t *packet);
 
 private:
-    uint32_t m_writeStartMillis = 0;
-    void Rapidfire::Write(char text);
+    uint32_t m_displayStartMillis = 0;
+    char m_textBuffer[MAX_LENGTH_TEXT]; 
+    void DisplayTextBuffer();
 };
