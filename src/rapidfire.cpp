@@ -1,15 +1,15 @@
 #include "rapidfire.h"
 #include "logging.h"
 
+//static rapidFIRE_SPI rapidfire = rapidFIRE_SPI(PIN_CLK, PIN_MOSI, PIN_CS);
+
 void Rapidfire::Init() {
   ModuleBase::Init();
 
   delay(VRX_BOOT_DELAY);
 
-  // https://github.com/ExpressLRS/ExpressLRS/pull/1489 &
-  // https://github.com/ExpressLRS/Backpack/pull/65
+  //rapidfire.begin();
 
-  // *rapidfire = rapidFIRE_SPI(PIN_CLK, PIN_MOSI, PIN_CS);
   EnableSPIMode();
   SetPinsInput();
 
