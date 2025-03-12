@@ -6,3 +6,7 @@ __pycache__
 *.pyc
 include/WebContent.h
 super_defines.txt
+
+.idea/
+
+user_defines.txt
